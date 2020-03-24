@@ -7,7 +7,7 @@ WORKDIR /var/www
 RUN docker-php-source extract \
     && apt-get update \
     && apt-get install -y libmcrypt-dev libldap2-dev libpng-dev libjpeg62-turbo-dev libfreetype6-dev curl tar \
-    && docker-php-ext-install pdo pdo_mysql mysqli \
+    && docker-php-ext-install pdo pdo_mysql mysqli mbstring exif \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
     && docker-php-ext-install -j$(nproc) gd \
     && a2enmod rewrite \
